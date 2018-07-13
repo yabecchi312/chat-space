@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180713072118) do
+ActiveRecord::Schema.define(version: 20180713083913) do
 
   create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "group_name", null: false
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 20180713072118) do
     t.string   "email",      null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["name", "email"], name: "index_users_on_name_and_email", using: :btree
   end
 
   add_foreign_key "members", "groups"

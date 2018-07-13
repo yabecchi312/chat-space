@@ -4,23 +4,24 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add_index|
-|email|integer|null: false, unique: true, add_index|
+|name|string|null: false|
+|email|integer|null: false, unique: true|
 
 ### Association
--  has_many :groups, through: :group_users
--  has_many :group_users
+-  has_many :members
+-  has_many :groups, through: :members
 -  has_many :messages
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false, add_index|
+|group_name|string|null: false, index: true|
 
 ### Association
--  has_many :users, through: :group_users
--  has_many :group_users
+-  has_many :members
+-  has_many :users, through: :members
+
 -  accepts_nested_attributes_for :members
 -  has_many :messages
 
