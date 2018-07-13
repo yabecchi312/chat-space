@@ -33,7 +33,7 @@
 - belongs_to :user
 
 
-## membersテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
