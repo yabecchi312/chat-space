@@ -1,1 +1,14 @@
+.wrapper
+  .sidebar
+    .header
+      %h3.header__name yabe hideaki
+      %ul.header__list
+        %li.list
+          = link_to root_path do
+            %i.fa.fa-edit
+        %li.list
+          = link_to root_path do
+            %i.fa.fa-cog
+    = render partial: 'messages/groups'
+
 
