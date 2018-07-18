@@ -5,3 +5,8 @@
 @import "font-awesome";
 @import "./leftside";
 @import "./right-contents";
+@import "user";
+
+body {
+  max-height: 100vh;
+}
