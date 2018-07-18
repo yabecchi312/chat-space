@@ -1,0 +1,48 @@
+.sidebar {
+  height: 100%;
+  width: 300px;
+  float: left;
+  background-color: #2f3e51;
+  box-sizing: border-box;
+  .header {
+    height: 100px;
+    background-color: #253141;
+    padding: 0 20px;
+    &__name {
+      color: $whitefontColor;
+      font-size: 16px;
+      padding-top: 35px;
+      float: left;
+      font-weight: bold;
+    }
+    &__list {
+      float: right;
+      .list {
+        padding-top: 35px;
+        display: inline-block;
+        color: $whitefontColor;
+        .fa {
+          color: $whitefontColor;
+        }
+      }
+    }
+  }
+  .groups {
+    .group {
+      height: 60px;
+      width: 300px;
+      text-decoration: none;
+        .group__name {
+          color: $whitefontColor;
+          font-size: 15px;
+          padding:20px 20px 0;
+        }
+        .group__message {
+          color: $whitefontColor;
+          font-size: 11px;
+          padding:5px 20px 20px;
+        }
+    }
+  }
+}
+
