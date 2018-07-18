@@ -1,7 +1,8 @@
 .flash {
-  background-color: $flashColor;
+  background-color: $blueColor;
   height: 30px;
-  width: 100%;
+  width: 100vw;
+  position: fixed;
   &__message {
     line-height: 30px;
     text-align: center;

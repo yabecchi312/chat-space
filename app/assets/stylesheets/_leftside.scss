@@ -3,8 +3,9 @@
   width: 300px;
   float: left;
   background-color: #2f3e51;
+  box-sizing: border-box;
   .header {
-    height: 90px;
+    height: 100px;
     background-color: #253141;
     padding: 0 20px;
     &__name {
@@ -30,7 +31,7 @@
     .group {
       height: 60px;
       width: 300px;
-      text-decoration:none;
+      text-decoration: none;
         .group__name {
           color: $whitefontColor;
           font-size: 15px;

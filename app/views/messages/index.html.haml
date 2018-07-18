@@ -11,4 +11,20 @@
             %i.fa.fa-cog
     = render partial: 'messages/groups'
 
+  .right-contents
+    .header
+      .left-header
+        .left-header__title
+          グループ名1
+          %ul.left-header__members
+            %li.member Members:
+            %li.member 矢部,
+            %li.member 秀明,
+            %li.member yabe,
+            %li.member hideaki
+      .right-header
+        = link_to root_path,class:"right-header__button" do
+          Edit
+    = render partial: 'messages/messages'
+    = render partial: 'messages/footer__form'
 

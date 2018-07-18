@@ -1,0 +1,7 @@
+.form
+  .form__mask
+    %input{type: "text", placeholder: "type a message",class: "form__text"}
+    %label{for: "upload-icon", class: "form__upload-icon"}
+      = fa_icon("image", class: "form__icon")
+    %input{type: "file", id: "upload-icon", class: "form__file"}
+  %input{class: "form__submit", type: "submit", value: "Send"}
