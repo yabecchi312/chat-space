@@ -5,7 +5,7 @@
     .header
       .left-header
         .left-header__title
-          グループ名1
+          = @group.name
           %ul.left-header__members
             %li.member Members:
             %li.member 矢部,
@@ -13,8 +13,9 @@
             %li.member yabe,
             %li.member hideaki
       .right-header
-        = link_to root_path, class: "right-header__button" do
+        = link_to edit_group_path(@group.id), class: "right-header__button" do
           Edit
-    = render partial: 'messages/middle__content'
+    .messages
+      = render @messages
     = render partial: 'messages/bottom__content'
 
