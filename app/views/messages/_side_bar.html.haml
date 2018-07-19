@@ -1,0 +1,19 @@
+.sidebar
+  .header
+    %h3.header__name
+      = current_user.name
+    %ul.header__list
+      %li.list
+        = link_to new_group_path do
+          %i.fa.fa-edit
+      %li.list
+        = link_to edit_user_path(current_user) do
+          %i.fa.fa-cog
+  .groups
+    - current_user.groups.each do |group|
+      = link_to group_messages_path(group), class:"group" do
+        .group__name
+          = group.name
+        .group__message メッセージはまだありません
+
+
