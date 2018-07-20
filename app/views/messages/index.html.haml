@@ -7,11 +7,10 @@
         .left-header__title
           = @group.name
           %ul.left-header__members
-            %li.member Members:
-            %li.member 矢部,
-            %li.member 秀明,
-            %li.member yabe,
-            %li.member hideaki
+            %li.member Members：
+            %li.member
+              - @group.users.each do |user|
+                = user.name
       .right-header
         = link_to edit_group_path(@group.id), class: "right-header__button" do
           Edit
