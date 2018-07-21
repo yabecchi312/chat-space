@@ -46,7 +46,7 @@
       box-sizing: border-box;
       overflow: scroll;
       .message {
-        min-height: 90px;
+        box-sizing: border-box;
         margin-bottom: 40px;
         .upper-message {
           display: flex;
