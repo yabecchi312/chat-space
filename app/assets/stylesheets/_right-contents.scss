@@ -44,8 +44,10 @@
       height: calc(100% - 190px);
       padding: 46px 40px 0;
       box-sizing: border-box;
+      overflow: scroll;
       .message {
-        height: 90px;
+        min-height: 90px;
+        margin-bottom: 40px;
         .upper-message {
           display: flex;
           padding-bottom: 10px;
@@ -64,12 +66,13 @@
             .lower-message {
               font-size: 14px;
               color: $userfontColor;
-              margin-bottom: 40px;
             }
       }
     }
   }
     .form {
+      position: fixed;
+      width: calc(100% - 300px);
       height: 90px;
       padding: 20px 40px;
       box-sizing: border-box;
