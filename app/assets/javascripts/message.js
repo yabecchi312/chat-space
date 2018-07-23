@@ -1,5 +1,6 @@
 $(function(){
   function buildHTML(message){
+    var img = message.image ? `<img src=${ message.image }>` : "";
     var html = `<div class="message">
                   <div class="upper-message">
                     <div class="upper-message__user">
@@ -13,7 +14,7 @@ $(function(){
                     <div class="lower-message__content">
                       ${ message.content }
                     </div>
-                    <img src = '${ message.image }', class='lower-message__image'>
+                    ${ img }
                   </div>
                 </div>`
     return html;
@@ -22,6 +23,9 @@ $(function(){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
+    function scroll(messages){
+      messages.animate({scrollTop: $('.messages')[0].scrollHeight},'fast')
+    }
     $.ajax({
       url: url,
       type: "POST",
@@ -32,13 +36,10 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html)
-      $('.form').val('')
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast' )
+      $('.messages').append(html);
       $('.form__submit').prop('disabled', false);
-      $(".lower-message__image").error(function(){
-        $(this).remove();
-      })
+      scroll($('.messages'));
+      $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('error');
