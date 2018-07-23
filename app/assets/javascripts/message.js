@@ -19,13 +19,16 @@ $(function(){
                 </div>`
     return html;
   }
+
+  function scroll(){
+      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight},'fast')
+  }
+
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
-    function scroll(messages){
-      messages.animate({scrollTop: $('.messages')[0].scrollHeight},'fast')
-    }
+
     $.ajax({
       url: url,
       type: "POST",
@@ -38,11 +41,11 @@ $(function(){
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.form__submit').prop('disabled', false);
-      scroll($('.messages'));
+      scroll()
       $('#new_message')[0].reset();
     })
     .fail(function(){
       alert('error');
     })
-  })
+  });
 });
