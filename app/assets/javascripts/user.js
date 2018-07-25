@@ -33,6 +33,10 @@ $(function() {
 
   $("#user-search-field").on("keyup", function() {
     var input = $("#user-search-field").val();
+    if (input == ""){
+      $("#user-search-result").empty();
+    }
+    else {
     $.ajax({
       type: 'GET',
       url: '/users',
@@ -40,7 +44,6 @@ $(function() {
       dataType: 'json'
     })
     .done(function(data) {
-      console.log(data);
       $("#user-search-result").empty();
       if (data.length !== 0) {
         data.forEach(function(user){
@@ -54,7 +57,9 @@ $(function() {
     .fail(function() {
       alert('ユーザー検索に失敗しました')
     })
+    }
   });
+
 
     $("#user-search-result").on("click", ".chat-group-user__btn--add", function(e){
       var name = $(this).data("user-name");
