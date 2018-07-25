@@ -19,7 +19,6 @@ class GroupsController < ApplicationController
   end
 
   def edit
-    set_group
   end
 
   def update
