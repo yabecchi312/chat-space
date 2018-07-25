@@ -57,7 +57,6 @@ $(document).on('turbolinks:load', function(){
     })
     .done(function(data) {
       var insertHTML = '';
-      console.log(data)
       data.forEach(function(message) {
         insertHTML += buildHTML(message);
       });
