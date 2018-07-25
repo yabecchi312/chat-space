@@ -48,5 +48,27 @@ $(document).on('turbolinks:load', function(){
       alert('error');
     })
   });
-
+    var autoupdate = setInterval(function() {
+      if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+    $.ajax({
+      url: location.pathname,
+      type: "GET",
+      dataType: 'json'
+    })
+    .done(function(data) {
+      var insertHTML = '';
+      console.log(data)
+      data.forEach(function(message) {
+        insertHTML += buildHTML(message);
+      });
+      $('.messages').html(insertHTML);
+      scroll()
+    })
+    .fail(function(data) {
+      alert('自動更新に失敗しました');
+    });
+  } else {
+    clearInterval(interval);
+    }
+  } , 5000 );
 });
