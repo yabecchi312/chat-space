@@ -1,7 +1,7 @@
 $(document).on('turbolinks:load', function(){
   function buildHTML(message){
     var img = message.image ? `<img src=${ message.image }>` : "";
-    var html = `<div class="message">
+    var html = `<div class="message" data-message-id="${message.id}">
                   <div class="upper-message">
                     <div class="upper-message__user">
                       ${ message.user_name }
@@ -41,7 +41,7 @@ $(document).on('turbolinks:load', function(){
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.form__submit').prop('disabled', false);
-      scroll()
+      scroll();
       $('#new_message')[0].reset();
     })
     .fail(function(){
@@ -49,23 +49,23 @@ $(document).on('turbolinks:load', function(){
     })
   });
     var autoupdate = setInterval(function() {
-      if (window.location.pathname.match(/\/groups\/\d+\/messages/)) {
+      if (location.pathname.match(/\/groups\/\d+\/messages/)) {
+    var last_message_id = $(".message").last().data('message-id');
     $.ajax({
       url: location.pathname,
       type: "GET",
-      dataType: 'json'
+      dataType: 'json',
+      data: {id: last_message_id }
     })
     .done(function(data) {
-      var insertHTML = '';
-      data.forEach(function(message) {
-        insertHTML += buildHTML(message);
-      });
-      $('.messages').html(insertHTML);
-      scroll()
+        data.forEach(function(message) {
+          $('.messages').append(buildHTML(message));
+          scroll();
+        })
     })
     .fail(function(data) {
       alert('自動更新に失敗しました');
-    });
+    })
   } else {
     clearInterval(interval);
     }
