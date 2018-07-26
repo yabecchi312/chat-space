@@ -60,7 +60,6 @@ $(document).on('turbolinks:load', function() {
     }
   });
 
-
     $("#user-search-result").on("click", ".chat-group-user__btn--add", function(e){
       var name = $(this).data("user-name");
       var user_id = $(this).data("user-id");
