@@ -38,15 +38,21 @@ $(document).on('turbolinks:load', function(){
       contentType: false
     })
     .done(function(data){
+      if (data.length !== 0) {
       var html = buildHTML(data);
       $('.messages').append(html);
       $('.form__submit').prop('disabled', false);
       scroll();
       $('#new_message')[0].reset();
+      console.log(data);
+      }
+      else {
+        alert('メッセージを入力してください');
+        $('.form__submit').prop('disabled', false);
+      }
     })
     .fail(function(){
-      alert('メッセージを入力してください');
-      $('.form__submit').prop('disabled', false);
+      alert('error');
     })
   });
     var autoupdate = setInterval(function() {
