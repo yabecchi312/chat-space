@@ -45,7 +45,8 @@ $(document).on('turbolinks:load', function(){
       $('#new_message')[0].reset();
     })
     .fail(function(){
-      alert('error');
+      alert('メッセージを入力してください');
+      $('.form__submit').prop('disabled', false);
     })
   });
     var autoupdate = setInterval(function() {
