@@ -12,6 +12,7 @@
 #     region: 'ap-northeast-1'
 #   }
 
+
 #   config.fog_directory  = 'upload-yabecchi312'
 #   config.asset_host = 'https://s3-ap-northeast-1.amazonaws.com/upload-yabecchi312'
 # end
